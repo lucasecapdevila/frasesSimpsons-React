@@ -1,11 +1,27 @@
-import React from 'react';
+import { Card } from "react-bootstrap";
 
-const Frase = () => {
+
+const Frase = ({frasePersonajeProps}) => {
   return (
     <>
-      <h1 className='mt-5'>Ania</h1>
-      <img src="https://pbs.twimg.com/media/Eu06gv9XMAkGDsd.jpg" alt="Lisa leyendo la carta de Ania" />
-      <blockquote className='w-50 my-2 lead text-center'>Querida Lisa: Al escribir esto estoy triste, nuestro presidente ha sido derrocado Y REEMPLAZADO POR EL BENÉVOLO GENERAL KROLL, TODOS AMAMOS A KROLL Y A SU GLORIOSO RÉGIMEN. CON AMOR, NIÑITA</blockquote>
+      <section className="my-5">
+        <h2>{frasePersonajeProps.character}</h2>
+        <hr />
+        <img className="mb-3" src={frasePersonajeProps.image} alt={frasePersonajeProps.character} />
+
+        <Card>
+          <Card.Body>
+            <figure>
+              <blockquote className="blockquote">
+                <p>{frasePersonajeProps.quote}</p>
+              </blockquote>
+              <figcaption className="blockquote-footer">
+                {frasePersonajeProps.character} in <cite title="Source Title">The Simpsons</cite>
+              </figcaption>
+            </figure>
+          </Card.Body>
+        </Card>
+      </section>
     </>
   );
 };
